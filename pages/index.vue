@@ -13,7 +13,7 @@ const recipesCount = store.count()
         <Menu />
       </v-col>
       <v-col col="12" lg="10">
-        <v-container class="bg-grey-lighten-4 rounded-lg">
+        <v-container class="bg- rounded-lg">
           <v-row>
             <v-col cols="12">
               <h1>Dashboard</h1>      

@@ -11,7 +11,7 @@ const recipes = store.list()
         <Menu />
       </v-col>
       <v-col col="12" lg="10">
-        <v-container class="bg-grey-lighten-4 rounded-lg">
+        <v-container class="rounded-lg">
           <v-row>
             <v-col cols="12">
               <v-btn class="float-right"><v-icon>mdi-plus</v-icon></v-btn>
