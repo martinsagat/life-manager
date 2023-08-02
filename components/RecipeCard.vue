@@ -11,8 +11,8 @@ defineProps({
 
 <template>
     <v-card
-        class="mx-auto"
-        
+        class="mx-auto text-capitalize rounded-lg"
+        :to="`/recipes/${recipe.id}`"
         >
         <template v-slot:title>
             {{ recipe.name }}
@@ -20,7 +20,7 @@ defineProps({
 
         <v-card-text>
             <v-list density="compact">
-                <v-list-item prepend-icon="mdi-food" v-for="ingredient in recipe.ingredients" :key="recipe.id">
+                <v-list-item class="text-capitalize" prepend-icon="mdi-food" v-for="ingredient in recipe.ingredients" :key="recipe.id">
                     {{ ingredient.name }}
                 </v-list-item>
             </v-list>

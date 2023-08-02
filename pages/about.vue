@@ -1,5 +1,5 @@
 <template>
     <v-container class="text-center">
-        Created by Martin Sagat
+        This is an application demo created by Martin Sagat
     </v-container>
 </template>

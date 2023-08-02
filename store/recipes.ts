@@ -66,8 +66,14 @@ export const useRecipesStore = defineStore('recipes', {
   },
 
   getters: {
-    get: (state) => (): Recipe[] => { 
+    list: (state) => (): Recipe[] => { 
       return state.recipes
+    },
+    get: (state) => (id: string): Recipe | undefined => { 
+      return state.recipes.find(recipe => recipe.id === id)
+    },
+    count: (state) => (): number => { 
+      return state.recipes.length
     }
   }
 })

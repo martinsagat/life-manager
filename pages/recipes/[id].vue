@@ -1,0 +1,18 @@
+<script setup>
+import { useRecipesStore } from '@/store/recipes'
+const store = useRecipesStore()
+const route = useRoute()
+const recipe = store.get(route.params.id)
+</script>
+
+<template>
+    <v-container>
+        <v-btn to="/recipes">Back</v-btn>
+        <h1>{{ recipe.name }}</h1>
+         <v-list>
+            <v-list-item v-for="ingredient in recipe.ingredients" :key="ingredient.id">
+            {{ ingredient.name }}
+            </v-list-item>
+        </v-list>
+    </v-container>
+</template>
