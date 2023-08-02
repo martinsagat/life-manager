@@ -1,5 +1,7 @@
 {
-  "name": "nuxt-app",
+  "name": "life-manager",
+  "version": "1.0.0",
+  "author": "Martin Sagat",
   "private": true,
   "scripts": {
     "build": "nuxt build",
