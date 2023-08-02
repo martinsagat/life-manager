@@ -16,7 +16,7 @@ const recipes = store.list()
       <v-container class="rounded-lg pa-0">
         <v-row>
           <v-col cols="12">
-            <v-btn class="float-right"><v-icon>mdi-plus</v-icon></v-btn>
+            <RecipeDialog />
             <h1>Recipes</h1>
           </v-col>
           <v-col cols="12" sm="6" md="4" v-for="recipe in recipes" :key="recipe.id">
@@ -25,6 +25,8 @@ const recipes = store.list()
         </v-row>
       </v-container>
     </template>
+
+
   </HomeLayout>
 </template>
   

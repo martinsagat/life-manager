@@ -60,8 +60,8 @@ export const useRecipesStore = defineStore('recipes', {
   }),
 
   actions: {
-    addRecipe(recipe: Recipe) {
-      this.recipes.push(recipe)
+    create(recipe: Recipe) {
+      this.recipes.unshift(recipe)
     },
   },
 
