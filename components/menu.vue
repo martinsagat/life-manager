@@ -15,7 +15,7 @@ const menuItems = [
 
 <template>
   
-  <v-list color="blue" class="rounded-lg">
+  <v-list color="blue" class="rounded-lg fill-height">
         <v-list-item v-for="item in menuItems" :key="item.title" :to="item.to" link :prepend-icon="item.icon">
             <v-list-item-title>{{ item.title }}
               {{ item.title === 'Recipes' ? `(${recipesCount})` : '' }}

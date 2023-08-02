@@ -13,7 +13,7 @@ const recipes = store.list()
 
     <!-- Slot for Content -->
     <template v-slot:content>
-      <v-container class="rounded-lg">
+      <v-container class="rounded-lg pa-0">
         <v-row>
           <v-col cols="12">
             <v-btn class="float-right"><v-icon>mdi-plus</v-icon></v-btn>
