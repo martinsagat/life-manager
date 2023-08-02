@@ -19,7 +19,12 @@ defineProps({
         </template>
 
         <v-card-text>
-            {{recipe.ingredients}}
+            <v-list density="compact">
+                <v-list-item prepend-icon="mdi-food" v-for="ingredient in recipe.ingredients" :key="recipe.id">
+                    {{ ingredient.name }}
+                </v-list-item>
+            </v-list>
+            
         </v-card-text>
     </v-card>
 </template>

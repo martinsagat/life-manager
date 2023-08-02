@@ -17,7 +17,7 @@ const recipes = store.get()
           <v-row>
             <v-col cols="12">
               <v-btn class="float-right"><v-icon>mdi-plus</v-icon></v-btn>
-              <h1 class="text-h4">Recipes</h1>
+              <h1 class="text-h4">Recipes ({{ recipes.length }})</h1>
              
             </v-col>
             <v-col cols="12" sm="6" md="4" lg="3" v-for="recipe in recipes" :key="recipe.id">
