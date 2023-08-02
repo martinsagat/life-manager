@@ -12,10 +12,7 @@ const menuItems = [
   
   <v-list class="rounded-lg" bg-color="grey-darken-3">
         <v-list-item v-for="item in menuItems" :key="item.title" :to="item.to" link :prepend-icon="item.icon">
-        <v-list-item-content>
             <v-list-item-title>{{ item.title }}</v-list-item-title>
-        </v-list-item-content>
-
         </v-list-item>
     </v-list>
 </template>
