@@ -7,13 +7,15 @@ const recipesCount = store.count()
 </script>
 
 <template>
-  <v-container>
-    <v-row>
-      <v-col cols="12" lg="2">
-        <Menu />
-      </v-col>
-      <v-col col="12" lg="10">
-        <v-container class="bg- rounded-lg">
+<HomeLayout>
+  <!-- Slot for Menu -->
+  <template v-slot:menu>
+    <Menu />
+  </template>
+
+  <!-- Slot for Content -->
+  <template v-slot:content>
+    <v-container class="bg- rounded-lg">
           <v-row>
             <v-col cols="12">
               <h1>Dashboard</h1>      
@@ -27,9 +29,8 @@ const recipesCount = store.count()
            </v-col>
           </v-row>
         </v-container>
-      </v-col>
-    </v-row>
-  </v-container>
+  </template>
+</HomeLayout>
 </template>
   
   

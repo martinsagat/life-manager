@@ -1,12 +1,13 @@
 <template>
-    <v-container>
-     <v-row>
-        <v-col cols="2">
-          <Menu />
-        </v-col>
-        <v-col cols="10" >
-          <v-sheet min-height="600" color=" rounded-lg"/>
-        </v-col>
-     </v-row>
-    </v-container>
+  <HomeLayout>
+    <!-- Slot for Menu -->
+    <template v-slot:menu>
+      <Menu />
+    </template>
+  
+    <!-- Slot for Content -->
+    <template v-slot:content>
+      <v-sheet min-height="600" color=" rounded-lg"/>
+    </template>
+  </HomeLayout>
   </template>

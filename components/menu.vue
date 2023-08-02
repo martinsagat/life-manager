@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import { useRecipesStore } from '@/store/recipes';
+const store = useRecipesStore();
+const recipesCount = ref(store.count());
+
 
 const menuItems = [
   { title: 'Dashboard', icon: 'mdi-view-dashboard', to: '/' },
@@ -13,7 +17,9 @@ const menuItems = [
   
   <v-list color="blue" class="rounded-lg">
         <v-list-item v-for="item in menuItems" :key="item.title" :to="item.to" link :prepend-icon="item.icon">
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
+            <v-list-item-title>{{ item.title }}
+              {{ item.title === 'Recipes' ? `(${recipesCount})` : '' }}
+            </v-list-item-title>
         </v-list-item>
     </v-list>
 </template>

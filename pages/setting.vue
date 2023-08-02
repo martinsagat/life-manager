@@ -12,15 +12,16 @@ const toggleDarkMode = () => {
 }
 
 </script>
-
 <template>
-  <v-container>
-    <v-row>
-      <v-col cols="12" lg="2">
-        <Menu />
-      </v-col>
-      <v-col col="12" lg="10">
-        <v-container class="bg- rounded-lg">
+  <HomeLayout>
+    <!-- Slot for Menu -->
+    <template v-slot:menu>
+      <Menu />
+    </template>
+  
+    <!-- Slot for Content -->
+    <template v-slot:content>
+      <v-container class="bg- rounded-lg">
           <v-row>
             <v-col cols="12">
                 <v-switch
@@ -31,9 +32,6 @@ const toggleDarkMode = () => {
            </v-col>
           </v-row>
         </v-container>
-      </v-col>
-    </v-row>
-  </v-container>
-</template>
-  
-  
+    </template>
+  </HomeLayout>
+  </template>
