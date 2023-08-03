@@ -1,7 +1,7 @@
 <script setup>
 import { useRecipesStore } from '@/store/recipes'
 const store = useRecipesStore()
-const recipes = store.list()
+const recipes = computed(() => store.list())
 </script>
 
 <template>
@@ -25,8 +25,6 @@ const recipes = store.list()
         </v-row>
       </v-container>
     </template>
-
-
   </HomeLayout>
 </template>
   

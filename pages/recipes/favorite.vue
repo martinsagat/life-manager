@@ -1,7 +1,7 @@
 <script setup>
     import { useRecipesStore } from '@/store/recipes'
     const store = useRecipesStore()
-    const favoriteRecipes = store.listFavorite()
+    const favoriteRecipes = computed(() => store.listFavorite())
 </script>
 
 

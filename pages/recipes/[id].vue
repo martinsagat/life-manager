@@ -8,9 +8,12 @@ const recipe = store.get(route.params.id)
 <template>
     <v-container>
         <v-btn to="/recipes">Back</v-btn>
-        <h1>{{ recipe.name }}</h1>
-         <v-list>
-            <v-list-item v-for="ingredient in recipe.ingredients" :key="ingredient.id">
+        <h1 class="py-4">{{ recipe.name }}</h1>
+         <v-list class="rounded-lg">
+            <v-list-item>
+                <h2>Ingredients</h2>
+            </v-list-item> 
+            <v-list-item prepend-icon="mdi-food" v-for="ingredient in recipe.ingredients" :key="ingredient.id">
             {{ ingredient.name }}
             </v-list-item>
         </v-list>

@@ -56,7 +56,7 @@ const submit = handleSubmit(values => {
             <v-icon>mdi-plus</v-icon>
           </v-btn>
         </template>
-        <v-card>
+        <v-card class="rounded-lg">
           <v-form ref="formRef" @submit.prevent="submit" >
           <v-card-title>
             <span class="text-h5">New Recipe</span>

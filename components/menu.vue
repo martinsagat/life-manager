@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { useRecipesStore } from '@/store/recipes';
-const store = useRecipesStore();
-const recipesCount = ref(store.count());
-const favoriteRecipesCount = ref(store.favoriteCount());
 
+const store = useRecipesStore();
+const recipesCount = computed(() => store.list().length);
+const favoriteRecipesCount = computed(() => store.listFavorite().length);
 
 const menuItems = [
   { title: 'Dashboard', icon: 'mdi-view-dashboard', to: '/' },
@@ -11,7 +11,6 @@ const menuItems = [
   { title: 'Favorite', icon: 'mdi-star', to: '/recipes/favorite' },
   { title: 'Settings', icon: 'mdi-cog', to: '/settings' },
 ]
-
 </script>
 
 <template>
