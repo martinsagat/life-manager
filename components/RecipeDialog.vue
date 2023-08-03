@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { useRecipesStore } from '@/store/recipes'
-const store = useRecipesStore()
+import { useIngredientsStore } from '@/store/ingredients';
+const recipesStore = useRecipesStore()
+const ingredientsStore = useIngredientsStore()
 
 const dialog = ref(false)
 const recipe = ref({
@@ -9,10 +11,13 @@ const recipe = ref({
   ingredients: [],
 })
 
+const ingredients = ref(ingredientsStore.get())
+
+
 const onSave = () => {
   const newRecipe = { ...recipe.value };
   newRecipe.id = Math.random().toString(36).substring(2, 9)
-  store.create(newRecipe)
+  recipesStore.create(newRecipe)
     dialog.value = false
     recipe.value = {
         id: '',
@@ -52,6 +57,24 @@ const onSave = () => {
                     label="Name"
                     required
                   ></v-text-field>
+                </v-col>
+              </v-row>
+              <v-row>
+                <v-col
+                  cols="12"
+                >
+                  <v-autocomplete
+                    chips
+                    v-model="recipe.ingredients"
+                    :items="ingredients"
+                    item-text="name"
+                    item-value="id"
+                    item-title="name"
+                    label="Ingredients"
+                    multiple
+                    required
+                    return-object
+                  ></v-autocomplete>
                 </v-col>
               </v-row>
             </v-container>
