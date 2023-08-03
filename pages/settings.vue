@@ -21,8 +21,11 @@ const toggleDarkMode = () => {
   
     <!-- Slot for Content -->
     <template v-slot:content>
-      <v-container class="bg- rounded-lg">
+      <v-container class="pa-0 rounded-lg">
           <v-row>
+            <v-col cols="12">
+              <h1>Settings</h1>
+            </v-col>
             <v-col cols="12">
                 <v-switch
                   @change="toggleDarkMode"

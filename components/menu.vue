@@ -9,7 +9,7 @@ const menuItems = [
   { title: 'Dashboard', icon: 'mdi-view-dashboard', to: '/' },
   { title: 'Recipes', icon: 'mdi-noodles', to: '/recipes' },
   { title: 'Favorite', icon: 'mdi-star', to: '/recipes/favorite' },
-  { title: 'Setting', icon: 'mdi-cog', to: '/setting' },
+  { title: 'Settings', icon: 'mdi-cog', to: '/settings' },
 ]
 
 </script>
