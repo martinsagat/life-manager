@@ -11,6 +11,7 @@ export const useRecipesStore = defineStore('recipes', {
     recipes: [{
       id: "1",
       name: 'Fruit Salad',
+      isFavorite: false,
       ingredients: [{
         id: "1",
         name: 'apple',
@@ -27,6 +28,7 @@ export const useRecipesStore = defineStore('recipes', {
     {
       id: "2",
       name: 'Garden Salad',
+      isFavorite: false,
       ingredients: [{
         id: "6",
         name: 'carrot',
@@ -35,6 +37,7 @@ export const useRecipesStore = defineStore('recipes', {
     {
       id: "3",
       name: 'Greek Salad',
+      isFavorite: false,
       ingredients: [{
         id: "7",
         name: 'lettuce',
@@ -48,6 +51,7 @@ export const useRecipesStore = defineStore('recipes', {
     {
       id: "4",
       name: 'Holland Salad',
+      isFavorite: true,
       ingredients: [{
         id: "7",
         name: 'lettuce',
@@ -74,6 +78,12 @@ export const useRecipesStore = defineStore('recipes', {
     },
     count: (state) => (): number => { 
       return state.recipes.length
-    }
+    },
+    listFavorite: (state) => (): Recipe[] => { 
+      return state.recipes.filter(recipe => recipe.isFavorite)
+    },
+    favoriteCount: (state) => (): number => { 
+      return state.recipes.filter(recipe => recipe.isFavorite).length
+    },
   }
 })

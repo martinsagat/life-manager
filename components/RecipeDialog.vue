@@ -10,7 +10,7 @@ const ingredientsStore = useIngredientsStore()
 const formRef = ref<any>(null);
 const dialog = ref(false)
 
-const availableIngredients = ref(ingredientsStore.get())
+const availableIngredients = ref<Ingredient[]>(ingredientsStore.get())
 
 const { handleSubmit, resetForm } = useForm({
   validationSchema: {
@@ -33,7 +33,8 @@ const submit = handleSubmit(values => {
   const recipe: Recipe = {
     id: Math.random().toString(36).substring(2, 9),
     name: values.name,
-    ingredients: values.ingredients
+    ingredients: values.ingredients,
+    isFavorite: false,
   }
   recipesStore.create(recipe)
   resetForm()

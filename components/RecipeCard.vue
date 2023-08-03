@@ -16,6 +16,7 @@ defineProps({
         >
         <template v-slot:title>
             {{ recipe.name }}
+            <v-icon color="orange" v-if="recipe.isFavorite">mdi-star</v-icon>
         </template>
 
         <v-card-text>
