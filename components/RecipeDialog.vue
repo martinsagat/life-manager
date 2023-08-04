@@ -46,7 +46,7 @@ const submit = handleSubmit(values => {
       <v-dialog
         v-model="dialog"
         persistent
-        width="1024"
+        width="800"
       >
         <template v-slot:activator="{ props }">
           <v-btn

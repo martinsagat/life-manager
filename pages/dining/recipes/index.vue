@@ -1,9 +1,18 @@
 <script setup>
 import { useRecipesStore } from '@/store/recipes'
+import { useDisplay } from 'vuetify'
 const store = useRecipesStore()
 const recipes = computed(() => store.list())
 const recipesCount = computed(() => store.list().length)
 let tab = ref(1)
+
+const display = useDisplay()
+
+
+const isScreenMdOrBigger = computed(() => {
+  return display.mdAndUp.value
+})
+
 </script>
 
 <template>
@@ -26,7 +35,7 @@ let tab = ref(1)
                 v-model="tab"
                 align-tabs="center">   
                 <v-tab class="text-none" :value="1">Meal Plan</v-tab>
-                <v-tab class="text-none" :value="2">My Recipes ({{ recipesCount }})</v-tab>
+                <v-tab class="text-none" :value="2">Recipes ({{ recipesCount }})</v-tab>
             </v-tabs>
           </v-col>
           <v-col cols="12">
@@ -34,9 +43,11 @@ let tab = ref(1)
               <v-window-item :value="1">
                 <v-row>
                   <v-col cols="12">
-                    <v-sheet height="600" class="align-center justify-center d-flex rounded-lg">
-                      Planning Meals
-                    </v-sheet>
+                    <Calendar class="rounded-lg" v-if="isScreenMdOrBigger" />
+                    <div class="text-center" v-else>
+                      Calendar for small screen not implemented<br>
+                      <i>(Increase screen size)</i>
+                    </div>
                   </v-col>
                 </v-row>
               </v-window-item>

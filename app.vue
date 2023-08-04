@@ -2,10 +2,12 @@
 
   import { useApplicationStore } from '@/store/application'
   import { useRecipesStore } from '@/store/recipes'
+  import { useDiningScheduleStore } from '@/store/diningSchedule'
   import { useTheme } from 'vuetify'
 
   const applicationStore = useApplicationStore()
   const recipesStore = useRecipesStore()
+  const diningScheduleStore = useDiningScheduleStore()
   
   const darkMode = ref(applicationStore.darkMode)
   const theme = useTheme()
@@ -17,6 +19,7 @@ onMounted(async () => {
   try {
     applicationStore.setLoading(true);
     await recipesStore.fetch();
+    diningScheduleStore.fetch();
     applicationStore.setLoading(false);
   } catch (error) {
     // Handle the error here (e.g., display an error message)

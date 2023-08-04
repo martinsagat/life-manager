@@ -11,6 +11,13 @@ const toggleDarkMode = () => {
     theme.global.name.value = darkMode.value ? 'dark' : 'light'
 }
 
+const clearLocalStorage = () => {
+    const isDarkMode = localStorage.getItem('darkMode')
+    localStorage.clear()
+    location.reload()
+    localStorage.setItem('darkMode', isDarkMode)
+}
+
 </script>
 <template>
   <HomeLayout>
@@ -32,6 +39,9 @@ const toggleDarkMode = () => {
                     v-model="darkMode"
                   label="Dark Mode"
                  ></v-switch>
+           </v-col>
+           <v-col cols="12">
+                <v-btn class="text-none" @click="clearLocalStorage">Clear Local Storage</v-btn>
            </v-col>
           </v-row>
         </v-container>
