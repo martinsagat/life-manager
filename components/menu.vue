@@ -7,8 +7,7 @@ const favoriteRecipesCount = computed(() => store.listFavorite().length);
 
 const menuItems = [
   { title: 'Dashboard', icon: 'mdi-view-dashboard', to: '/' },
-  { title: 'Recipes', icon: 'mdi-noodles', to: '/recipes' },
-  { title: 'Favorite', icon: 'mdi-star', to: '/recipes/favorite' },
+  { title: 'Dining', icon: 'mdi-noodles', to: '/dining/recipes' },
   { title: 'Settings', icon: 'mdi-cog', to: '/settings' },
 ]
 </script>
@@ -16,7 +15,7 @@ const menuItems = [
 <template>
   
   <v-list color="blue" class="rounded-lg fill-height">
-        <v-list-item v-for="item in menuItems" :key="item.title" :to="item.to" link :prepend-icon="item.icon">
+        <v-list-item v-for="item in menuItems" :key="item.title" :to="item.to" link :prepend-icon="item.icon" exact>
             <v-list-item-title>{{ item.title }}
               {{ item.title === 'Recipes' ? `(${recipesCount})` : '' }}
               {{ item.title === 'Favorite' ? `(${favoriteRecipesCount})` : '' }}

@@ -7,7 +7,7 @@ const recipe = store.get(route.params.id)
 
 <template>
     <v-container>
-        <v-btn to="/recipes">Back</v-btn>
+        <v-btn to="/dining/recipes">Back</v-btn>
         <h1 class="py-4">{{ recipe.name }}</h1>
          <v-list class="rounded-lg">
             <v-list-item>

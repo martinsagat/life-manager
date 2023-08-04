@@ -17,7 +17,10 @@ const recipes = computed(() => store.list())
         <v-row>
           <v-col cols="12">
             <RecipeDialog />
-            <h1>Recipes</h1>
+            <h1>Plan</h1>
+          </v-col>
+          <v-col cols="12">
+            <DiningTab />
           </v-col>
           <v-col cols="12" sm="6" md="4" v-for="recipe in recipes" :key="recipe.id">
             <RecipeCard class="fill-height" :recipe="recipe" />
@@ -27,5 +30,3 @@ const recipes = computed(() => store.list())
     </template>
   </HomeLayout>
 </template>
-  
-  

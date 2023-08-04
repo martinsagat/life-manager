@@ -1,8 +1,7 @@
 <script setup>
 import { useRecipesStore } from '@/store/recipes'
 const store = useRecipesStore()
-const recipesCount = store.count()
-
+const recipesCount = computed(() => store.list().length)
 </script>
 
 <template>
@@ -29,6 +28,8 @@ const recipesCount = store.count()
           </v-row>
         </v-container>
   </template>
+
+<RecipeDialog />
 </HomeLayout>
 </template>
   

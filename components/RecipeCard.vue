@@ -12,7 +12,7 @@ defineProps({
 <template>
 <v-card
     class="mx-auto text-capitalize rounded-lg"
-    :to="`/recipes/${recipe.id}`"
+    :to="`/dining/recipes/${recipe.id}`"
 >
     <template v-slot:title>
         {{ recipe.name }}
