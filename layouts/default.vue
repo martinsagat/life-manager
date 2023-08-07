@@ -1,7 +1,7 @@
 <template>
     <v-app>
         <v-toolbar color="blue">
-  <v-toolbar-title class="font-weight-bold" text="Life Manager" />
+  <v-toolbar-title class="font-weight-bold" text="Personal Manager" />
   <v-spacer />
 <v-toolbar-items>
     <v-btn variant="plain" to="/">Home</v-btn>

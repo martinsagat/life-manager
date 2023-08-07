@@ -79,27 +79,21 @@ const getScheduledMeal = (date: Date, mealType: MealType) => {
         <v-row>
             <v-col class="d-flex align-center border-t border-b">Breakfast</v-col>
             <v-col v-for="(date, i) in selectedWeekDays" :key="i" class="text-caption text-center d-flex align-center justify-center border-t border-b">
-                <div class="rounded-lg bg-grey-darken-2 d-flex flex-1-1-100 pa-2 h-100 justify-center align-center" v-if="getScheduledMeal(date, MealType.Breakfast)">
-                    {{ getScheduledMeal(date, MealType.Breakfast).recipe.name }}
-                </div>
+                <CalendarItem v-if="getScheduledMeal(date, MealType.Breakfast)" :title="getScheduledMeal(date, MealType.Breakfast).recipe.name" />
                 <CalendarPlanMealDialog v-else :meal-type="MealType.Breakfast" :date="date" />
             </v-col>
         </v-row>
         <v-row>
             <v-col class="d-flex align-center border-b">Lunch</v-col>
             <v-col v-for="(date, i) in selectedWeekDays" :key="i" class="text-caption text-center d-flex align-center justify-center border-b">
-                <div class="rounded-lg bg-grey-darken-2 d-flex flex-1-1-100 pa-2 h-100 justify-center align-center" v-if="getScheduledMeal(date, MealType.Lunch)">
-                    {{ getScheduledMeal(date, MealType.Lunch).recipe.name }}
-                </div>
+                <CalendarItem v-if="getScheduledMeal(date, MealType.Lunch)" :title="getScheduledMeal(date, MealType.Lunch).recipe.name" />
                 <CalendarPlanMealDialog v-else :meal-type="MealType.Lunch" :date="date" />
             </v-col>
         </v-row>
         <v-row>
             <v-col class="d-flex align-center border-b">Dinner</v-col>
             <v-col v-for="(date, i) in selectedWeekDays" :key="i" class="text-caption text-center d-flex align-center justify-center border-b">
-                <div class="rounded-lg bg-grey-darken-2 d-flex flex-1-1-100 pa-2 h-100 justify-center align-center" v-if="getScheduledMeal(date, MealType.Dinner)">
-                    {{ getScheduledMeal(date, MealType.Dinner).recipe.name }}
-                </div>
+                <CalendarItem v-if="getScheduledMeal(date, MealType.Dinner)" :title="getScheduledMeal(date, MealType.Dinner).recipe.name" />
                 <CalendarPlanMealDialog v-else :meal-type="MealType.Dinner" :date="date" />
             </v-col>
         </v-row>

@@ -50,10 +50,10 @@ const submit = handleSubmit(values => {
       >
         <template v-slot:activator="{ props }">
           <v-btn
-            class="float-right"
+            class="float-right text-none"
             v-bind="props"
           >
-            <v-icon>mdi-plus</v-icon>
+            Add Recipe
           </v-btn>
         </template>
         <v-card class="rounded-lg">

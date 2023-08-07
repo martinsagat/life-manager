@@ -40,8 +40,15 @@ const clearLocalStorage = () => {
                   label="Dark Mode"
                  ></v-switch>
            </v-col>
+           <v-col class="text-red">
+            <p class="mb-4 d-flex align-center">
+              <v-icon class="mr-2">mdi-alert mr-1</v-icon>
+              Danger Zone
+            </p>
+            <v-divider />
+           </v-col>
            <v-col cols="12">
-                <v-btn class="text-none" @click="clearLocalStorage">Clear Local Storage</v-btn>
+                <v-btn variant="outlined" class="text-none text-red" @click="clearLocalStorage">Clear Storage</v-btn>
            </v-col>
           </v-row>
         </v-container>
