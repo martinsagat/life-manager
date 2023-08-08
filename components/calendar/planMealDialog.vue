@@ -57,7 +57,7 @@ const props = defineProps({
         width="800"
       >
         <template v-slot:activator="{ props }">
-          <v-btn v-bind="props" class="h-100 rounded-lg" style="min-height: 80px; min-width: 80px;">
+          <v-btn v-bind="props" class="h-100 rounded-lg" style="min-height: 75px; min-width: 75px;">
             <v-icon>mdi-plus</v-icon>
           </v-btn>
         </template>

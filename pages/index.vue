@@ -35,11 +35,14 @@ const todayPlanedRecipes = computed(() => {
             <v-col cols="12">
               <h1>Home</h1>      
             </v-col>
-            <v-col cols="12" sm="6" md="6">
+            <v-col cols="12">
               <v-card v-if="todayPlanedRecipes.length > 0" class="pa-10 rounded-lg">
                 <h3 class="pb-2">Today's meals</h3>
-                 <v-card v-for="meal in todayPlanedRecipes" :key="meal.id">
-                  {{ meal.type }}: <b>{{ meal.recipe.name }}</b>
+                 <v-card class="text-caption mb-2 bg-secondary rounded-lg" v-for="meal in todayPlanedRecipes" :key="meal.id">
+                  <!-- <v-card-title>{{ meal.type }}</v-card-title> -->
+                  <v-img  class="align-end text-white" height="100px" gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)" cover :src="meal.recipe.img">
+                    <v-card-title class="text-white" v-text="meal.recipe.name"></v-card-title>
+                  </v-img>
                  </v-card>
               </v-card>
               <v-card v-else class="pa-10 rounded-lg">
@@ -50,7 +53,7 @@ const todayPlanedRecipes = computed(() => {
                 </div>
               </v-card>
            </v-col>
-           <v-col cols="12" sm="6" md="6">
+           <v-col cols="12">
               <v-card class="pa-10 rounded-lg h-100">
                 <h3 class="pb-2">Recipes</h3>
 

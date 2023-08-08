@@ -14,10 +14,19 @@ defineProps({
     class="mx-auto text-capitalize rounded-lg"
     :to="`/dining/recipes/${recipe.id}`"
 >
-    <template v-slot:title>
+        <v-img
+              :src="recipe.img"
+              class="align-end"
+              gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+              height="200px"
+              cover
+            >
+              <v-card-title class="text-white" v-text="recipe.name"></v-card-title>
+            </v-img>
+    <!-- <template v-slot:title>
         {{ recipe.name }}
         <v-icon color="orange" v-if="recipe.isFavorite">mdi-star</v-icon>
-    </template>
+    </template> -->
 
     <v-card-text>
         <v-list dense>

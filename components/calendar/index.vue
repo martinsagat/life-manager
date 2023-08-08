@@ -70,35 +70,35 @@ const getScheduledMeal = (date: Date, mealType: MealType) => {
 <template>
     <v-container class="border">
         <v-row>
-            <v-col class="d-flex align-center justify-center">{{ selectedWeekDays[0].toLocaleDateString('en-AU', { year: 'numeric' }) }}</v-col>
-            <v-col v-for="(date,i) in selectedWeekDays" :key="i" class="text-center" :class="date.toDateString() === today.toDateString() ? 'bg-red' : ''">
+            <v-col class="first-col text-caption d-flex align-center justify-center">{{ selectedWeekDays[0].toLocaleDateString('en-AU', { year: 'numeric' }) }}</v-col>
+            <v-col v-for="(date,i) in selectedWeekDays" :key="i" class="text-caption rounded-t-lg" :class="date.toDateString() === today.toDateString() ? 'bg-red' : ''">
                 <b>{{ date.toLocaleDateString('en-US', { weekday: 'long' }) }}</b><br>
                 {{ date.toLocaleDateString('en-AU', { day: 'numeric', month: 'short' }) }}
             </v-col>
         </v-row>
         <v-row>
-            <v-col class="d-flex align-center border-t border-b">Breakfast</v-col>
-            <v-col v-for="(date, i) in selectedWeekDays" :key="i" class="text-caption text-center d-flex align-center justify-center border-t border-b">
-                <CalendarItem v-if="getScheduledMeal(date, MealType.Breakfast)" :title="getScheduledMeal(date, MealType.Breakfast).recipe.name" />
+            <v-col class="first-col text-caption d-flex align-center border-t border-b">Breakfast</v-col>
+            <v-col v-for="(date, i) in selectedWeekDays" :key="i" class="text-caption text-center d-flex align-center justify-center border-t border-b" :class="date.toDateString() === today.toDateString() ? 'bg-red' : ''">
+                <CalendarItem v-if="getScheduledMeal(date, MealType.Breakfast)" :planed-meal="getScheduledMeal(date, MealType.Breakfast)" />
                 <CalendarPlanMealDialog v-else :meal-type="MealType.Breakfast" :date="date" />
             </v-col>
         </v-row>
         <v-row>
-            <v-col class="d-flex align-center border-b">Lunch</v-col>
-            <v-col v-for="(date, i) in selectedWeekDays" :key="i" class="text-caption text-center d-flex align-center justify-center border-b">
-                <CalendarItem v-if="getScheduledMeal(date, MealType.Lunch)" :title="getScheduledMeal(date, MealType.Lunch).recipe.name" />
+            <v-col class="first-col text-caption d-flex align-center border-b">Lunch</v-col>
+            <v-col v-for="(date, i) in selectedWeekDays" :key="i" class="text-caption text-center d-flex align-center justify-center border-b" :class="date.toDateString() === today.toDateString() ? 'bg-red' : ''">
+                <CalendarItem v-if="getScheduledMeal(date, MealType.Lunch)" :planed-meal="getScheduledMeal(date, MealType.Lunch)" />
                 <CalendarPlanMealDialog v-else :meal-type="MealType.Lunch" :date="date" />
             </v-col>
         </v-row>
         <v-row>
-            <v-col class="d-flex align-center border-b">Dinner</v-col>
-            <v-col v-for="(date, i) in selectedWeekDays" :key="i" class="text-caption text-center d-flex align-center justify-center border-b">
-                <CalendarItem v-if="getScheduledMeal(date, MealType.Dinner)" :title="getScheduledMeal(date, MealType.Dinner).recipe.name" />
+            <v-col class="first-col text-caption d-flex align-center border-b">Dinner</v-col>
+            <v-col v-for="(date, i) in selectedWeekDays" :key="i" class="text-caption text-center d-flex align-center justify-center border-b" :class="date.toDateString() === today.toDateString() ? 'bg-red' : ''">
+                <CalendarItem v-if="getScheduledMeal(date, MealType.Dinner)" :planed-meal="getScheduledMeal(date, MealType.Dinner)" />
                 <CalendarPlanMealDialog v-else :meal-type="MealType.Dinner" :date="date" />
             </v-col>
         </v-row>
         <v-row>
-        <v-row>
+       
             <v-col cols="12" class="text-center px-2 py-6">
                 <v-btn color="blue" variant="outlined" @click="moveToPreviousWeek()" small class="text-none mr-2">
                     <v-icon left>mdi-chevron-left</v-icon>
@@ -112,7 +112,13 @@ const getScheduledMeal = (date: Date, mealType: MealType) => {
                    <v-icon right>mdi-chevron-right</v-icon>
                 </v-btn>
             </v-col>
-        </v-row>
+       
         </v-row>
     </v-container>
 </template>
+
+<style scoped>
+.first-col {
+    min-width: 120px !important;
+}
+</style>
