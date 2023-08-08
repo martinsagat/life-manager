@@ -1,7 +1,24 @@
 <script setup>
 import { useRecipesStore } from '@/store/recipes'
-const store = useRecipesStore()
-const recipesCount = computed(() => store.list().length)
+import { useDiningScheduleStore } from '@/store/diningSchedule'
+
+const recipeStore = useRecipesStore()
+const scheduleStore = useDiningScheduleStore()
+
+const recipesCount = computed(() => recipeStore.list().length)
+
+const todayPlanedRecipes = computed(() => {
+  return scheduleStore.meals().filter((item) => {
+    const date = new Date(item.date).toISOString().slice(0, 10);
+    return date === new Date().toISOString().slice(0, 10)
+  }).sort((mealA, mealB) => {
+    const mealTypeOrder = { breakfast: 1, lunch: 2, dinner: 3 };
+    const typeA = mealA.type.toLowerCase();
+    const typeB = mealB.type.toLowerCase();
+    return mealTypeOrder[typeA] - mealTypeOrder[typeB];
+  });
+})
+
 </script>
 
 <template>
@@ -16,14 +33,30 @@ const recipesCount = computed(() => store.list().length)
     <v-container class="rounded-lg pa-0">
           <v-row>
             <v-col cols="12">
-              <h1>Dashboard</h1>      
+              <h1>Home</h1>      
             </v-col>
-            <v-col cols="12" sm="6" md="4">
-              <v-card class="pa-10 text-center rounded-lg">
-                <h3 class="pb-2">Recipes</h3>
-                <p class="text-2xl">{{ recipesCount }}</p>
+            <v-col cols="12" sm="6" md="6">
+              <v-card v-if="todayPlanedRecipes.length > 0" class="pa-10 rounded-lg">
+                <h3 class="pb-2">Today's meals</h3>
+                 <v-card v-for="meal in todayPlanedRecipes" :key="meal.id">
+                  {{ meal.type }}: <b>{{ meal.recipe.name }}</b>
+                 </v-card>
               </v-card>
-          
+              <v-card v-else class="pa-10 rounded-lg">
+                <div class="text-center">
+                  <v-img src="/hungry.png" width="200" class="mx-auto" />
+                  <h4>No meals planned for today</h4>
+                  <v-btn to="/dining/recipes" class="mt-5 text-none">Plan Meals</v-btn>
+                </div>
+              </v-card>
+           </v-col>
+           <v-col cols="12" sm="6" md="6">
+              <v-card class="pa-10 rounded-lg h-100">
+                <h3 class="pb-2">Recipes</h3>
+
+                  Saved ({{ recipesCount }})
+
+              </v-card>
            </v-col>
           </v-row>
         </v-container>

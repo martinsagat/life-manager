@@ -7,8 +7,8 @@ const isScreenLgOrBigger = computed(() => {
 })
 
 const menuItems = [
-  { title: 'Dashboard', icon: 'mdi-view-dashboard', to: '/' },
-  { title: 'Dining', icon: 'mdi-noodles', to: '/dining/recipes' },
+  { title: 'Home', icon: 'mdi-home', to: '/' },
+  { title: 'Plan', icon: 'mdi-noodles', to: '/dining/recipes' },
   { title: 'Settings', icon: 'mdi-cog', to: '/settings' },
 ]
 </script>
@@ -16,7 +16,7 @@ const menuItems = [
 <template>
     <v-app>
         <v-toolbar color="blue">
-  <v-toolbar-title class="font-weight-bold" text="Personal Manager" />
+  <v-toolbar-title class="font-weight-bold" text="Meal Planner" />
   <v-spacer />
 <v-toolbar-items>
     <v-btn variant="plain" to="/">Home</v-btn>

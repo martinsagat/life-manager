@@ -28,13 +28,13 @@ const isScreenMdOrBigger = computed(() => {
         <v-row>
           <v-col cols="12">
             <RecipeDialog />
-            <h1>Dining</h1>
+            <h1>Plan</h1>
           </v-col>
           <v-col cols="12">
             <v-tabs
                 v-model="tab"
                 align-tabs="center">   
-                <v-tab class="text-none" :value="1">Meal Plan</v-tab>
+                <v-tab class="text-none" :value="1">Calendar</v-tab>
                 <v-tab class="text-none" :value="2">Recipes ({{ recipesCount }})</v-tab>
             </v-tabs>
           </v-col>
